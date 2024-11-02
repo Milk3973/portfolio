@@ -14,23 +14,52 @@ const log = console.log.bind();
 // };
 //not skibidi
 
-const navBarHeight = $('.nav-bar').outerHeight();
+
 const hero = $('.hero');
+const floatingNavBar = $('.floating-nav-bar');
 const scrllupBtn = $('.scrllup');
 
 $(window).on('scroll', function() {
-    if (
-        $(window).scrollTop() >= hero.offset().top - navBarHeight - 150 &&
-        $(window).scrollTop() < hero.offset().top - navBarHeight - 150 + hero
-    ) {
-        scrllupBtn.css('display', 'none')
+    const scrollPosition = $(window).scrollTop();
+    const heroBottom = hero.offset().top + hero.outerHeight();
+
+    // Show floating nav bar when hero section is out of view
+    if (scrollPosition >= heroBottom - hero.outerHeight() / 2) {
+        floatingNavBar.addClass('show');
     } else {
-        scrllupBtn.css('display', 'flex')
+        floatingNavBar.removeClass('show');
+    }
+
+    // Show scroll-up button when hero is mostly off-screen
+    if (scrollPosition >= heroBottom - hero.outerHeight() / 2) {
+        scrllupBtn.css('display', 'flex');
+    } else {
+        scrllupBtn.css('display', 'none');
     }
 });
 
-// When the user clicks on the button, scroll to the top of the document
+// Smooth scroll to top when scroll-up button is clicked
 function scrllUp() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
 }
+
+
+// Function to remove the development notice if the correct password is entered
+function removeDevNotice() {
+    const password = "letmein"; // Set your desired password here
+    const enteredPassword = prompt("Password:");
+    const devNotice = $('.dev-notice');
+
+    // Check if the entered password matches
+    if (enteredPassword === password) {
+        // const devNotice = document.getElementById("devNotice");
+        // devNotice.style.display = "none"; // Hide the banner
+        devNotice.hide();
+        alert("Development notice removed.");
+    } else {
+        alert("Incorrect password.");
+    }
+}
+
+// Call the function
+removeDevNotice();

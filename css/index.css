@@ -140,6 +140,10 @@ body {
     animation: fadeInFromAbove .4s ease-in;
 }
 
+.name a {
+    text-decoration: none;
+}
+
 .nls {
     display: flex;
     padding: 10px;
@@ -208,6 +212,44 @@ body {
 main {
     flex: 1;
 }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: #1f222b;
+    position: relative;
+}
+
+/* Hero Navbar */
+.hero-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* Floating Navbar (Initially hidden and positioned above the viewport) */
+.floating-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    top: -100px; /* Positioned above the viewport initially */
+    width: 100%;
+    transition: top 0.5s ease; /* Smooth sliding transition */
+    z-index: 1000;
+}
+
+.floating-nav-bar.show {
+    top: 0; /* Slides down to 0 when the "show" class is added */
+}
+
+
 
 /* footer */
 footer {
