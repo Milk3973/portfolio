@@ -38,9 +38,12 @@
 }
 
 .dev-notice {
-    background-color: #ffcc00;
+    background-color: #223869;
     color: #333;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px;
     font-weight: bold;
     font-size: 1.1em;
