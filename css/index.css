@@ -37,6 +37,18 @@
     background: #757575;
 }
 
+.dev-notice {
+    background-color: #ffcc00;
+    color: #333;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 body {
     background-color: #181818;
