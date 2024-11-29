@@ -142,6 +142,12 @@ body {
 
 .name a {
     text-decoration: none;
+    display: flex;
+    transition: all .4s ease-in-out;
+}
+
+.name a:hover {
+    transform: scale(1.15);
 }
 
 .nls {
